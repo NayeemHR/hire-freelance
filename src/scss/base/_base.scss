@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/* ---------- Base ---------- */
+:root {
+  --ring: 0 0 0 3px rgba(59, 130, 246, .35);
+}
+
+body {
+  font-family: $font-sans;
+  color: $color-text;
+  background: $color-bg;
+}
+
+.container { @include container; }
+
+.site-header {
+  border-bottom: 1px solid $color-border;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: $space-4;
+    gap: $space-4;
+  }
+  .logo { font-weight: 700; }
+  .nav-toggle {
+    padding: .5rem .75rem;
+    border: 1px solid $color-border;
+    border-radius: .5rem;
+    background: transparent;
+    cursor: pointer;
+  }
+  .site-nav[hidden] { display: none; }
+  .site-nav .nav-list {
+    display: flex;
+    gap: $space-4;
+    list-style: none;
+  }
+}
+
+.hero {
+  padding-block: clamp(3rem, 6vw, 6rem);
+  background: linear-gradient(180deg, rgba(59, 130, 246, .06), transparent 60%);
+  .container { display: grid; gap: $space-4; }
+}
+
+.site-footer {
+  border-top: 1px solid $color-border;
+  .container { padding-block: $space-4; }
+}
+
+a {
+  color: $brand;
+  text-decoration: none;
+}
+a:hover { color: $brand-600; text-decoration: underline; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .7rem 1rem;
+  border-radius: $radius;
+  background: $brand;
+  color: white;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform .06s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.btn:hover { background: $brand-600; }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: none; box-shadow: var(--ring); border-color: $brand-700; }
+
+.flow > * + * { margin-block-start: $space-4; }
