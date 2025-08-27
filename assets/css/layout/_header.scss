@@ -1,0 +1,145 @@
+@use "../base/variables" as *;
+@use "../base/grid" as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  .container {
+    .row {
+      height: 100px;
+      @include min-lg {
+        justify-content: space-between;
+      }
+      @include min-md {
+        justify-content: space-between;
+      }
+      @include min-sm {
+        justify-content: space-between;
+      }
+
+      .site-nav {
+        gap: 56px;
+        .nav-list {
+          gap: 56px;
+          @include min-lg {
+            gap: 32px;
+          }
+          @include min-xl {
+            gap: 32px;
+          }
+          li {
+            a {
+              color: #84819d;
+              font-weight: 500;
+              position: relative;
+              transition: all 0.25s ease-out;
+              &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                height: 2px;
+                bottom: -2px;
+                left: 0;
+                background: $primary;
+                transition: transform 0.25s ease-out;
+              }
+              &:hover {
+                color: $primary;
+                &::before {
+                  transform: scaleX(1);
+                  transform-origin: bottom left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.slicknav_menu {
+  background: none;
+  z-index: 9999;
+}
+.slicknav_btn {
+  background-color: $color-text;
+}
+
+.slicknav_menu {
+  display: block;
+}
+.nav-list {
+  display: none;
+}
+
+.slicknav_menu {
+  position: absolute;
+  top: 24px;
+  width: 180px;
+  z-index: 9999;
+}
+.slicknav_nav li > a {
+  color: $color-bg;
+  font-weight: 400;
+  margin: 4px;
+}
+.slicknav_nav {
+  background: $color-text;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.slicknav_nav li > a:hover {
+  background: #fff !important;
+}
+.slicknav_nav > a {
+  all: unset;
+  padding: 5px 10px !important;
+  background: $secondary-color;
+  border-radius: 8px;
+  display: block;
+  margin: 4px;
+}
+.slicknav_nav > a:hover {
+  all: unset;
+  background: #fff !important;
+  border-radius: 8px;
+  color: $color-text !important;
+  display: block;
+  cursor: pointer;
+  margin: 4px;
+}
+
+@include min-sm {
+}
+@include min-lg {
+  .slicknav_menu {
+    display: none;
+  }
+  .nav-list {
+    display: inherit;
+  }
+}
+@include min-xl {
+  .slicknav_menu {
+    display: none;
+  }
+  .nav-list {
+    display: inherit;
+  }
+}
+@include min-xxl {
+  .slicknav_menu {
+    display: none;
+  }
+  .nav-list {
+    display: inherit;
+  }
+}

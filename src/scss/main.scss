@@ -1,9 +1,0 @@
-/* Main Sass entry — compiles to public/css/main.css */
-@use 'abstracts/variables';
-@use 'abstracts/mixins';
-
-@use 'base/reset';
-@use 'base/base';
-@use 'typography/typography';
-@use 'utilities/utilities';
-@use 'components/buttons';

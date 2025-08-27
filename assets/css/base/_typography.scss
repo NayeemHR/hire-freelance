@@ -1,0 +1,87 @@
+@use "./variables" as *;
+@use "sass:map";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+/* ---------- Typography ---------- */
+$typescale: (
+  h1: (
+    fluid: clamp(2.027rem, 1.703rem + 1.73vw, 3rem),
+    weight: 700,
+    lh: 1.2,
+    mb: 15px,
+    letter-spacing: 0.5px,
+  ),
+  h2: (
+    fluid: clamp(1.802rem, 1.569rem + 1.241vw, 2.5rem),
+    weight: 700,
+    lh: 1.25,
+    mb: 14px,
+    letter-spacing: 2%,
+  ),
+  
+  h3: (
+    fluid: clamp(1.602rem, 1.469rem + 0.708vw, 2rem),
+    weight: 700,
+    lh: 3.125rem,
+    mb: 12px,
+    letter-spacing: 0.26px,
+  ),
+  h4: (
+    fluid: clamp(1.424rem, 1.399rem + 0.135vw, 1.5rem),
+    weight: 600,
+    lh: 1.35,
+    mb: 10px,
+    letter-spacing: 0.5px,
+  ),
+  h5: (
+    fluid: clamp(1.266rem, 1.271rem + -0.028vw, 1.25rem),
+    weight: 700,
+    lh: 1.4,
+    mb: 8px,
+    letter-spacing: 0.5px,
+  ),
+  h6: (
+    fluid: clamp(1.125rem, 1.125rem + 0vw, 1.125rem),
+    weight: 700,
+    lh: 1.45,
+    mb: 6px,
+    letter-spacing: 0.5px,
+  ),
+  p: (
+    fluid: clamp(1rem, 1rem + 0vw, 1rem),
+    weight: 400,
+    lh: 1.6,
+    mb: 1em,
+    ls: 0.26px,
+    // shorthand also supported
+  ),
+);
+
+@each $tag, $vals in $typescale {
+  #{$tag} {
+    // optional fallback (old browsers): first set min-size, then override with clamp
+    @if $tag == p {
+      font-size: 1rem;
+    }
+    font-size: map.get($vals, fluid);
+    font-weight: map.get($vals, weight);
+    line-height: map.get($vals, lh);
+    margin-bottom: map.get($vals, mb);
+
+    // support either `letter-spacing` or `ls` keys
+    $ls: if(
+      map.has-key($vals, letter-spacing),
+      map.get($vals, letter-spacing),
+      null
+    );
+    @if $ls == null and map.has-key($vals, ls) {
+      $ls: map.get($vals, ls);
+    }
+    @if $ls != null {
+      letter-spacing: $ls;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}

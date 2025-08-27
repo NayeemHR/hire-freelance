@@ -1,0 +1,42 @@
+@use "../base/variables" as *;
+@use "../base/grid" as *;
+.subscription {
+  margin-top: -160px;
+  .container {
+    background-color: $primary;
+    border-radius: 30px;
+    @include min-md {
+      padding: 0px 60px;
+    }
+    h2 {
+      color: $color-bg;
+      @include min-md {
+        font-size: 1.5rem;
+      }
+    }
+    p {
+      color: $color-bg;
+      text-align: center;
+    }
+    form.subscription-form {
+      width: 860px;
+      margin: 0 auto;
+      background: $color-bg;
+      height: 80px;
+      border-radius: 70px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      margin-top: 30px;
+      input {
+        border: 0;
+        margin-left: 36px;
+        width: 70%;
+        font-weight: 500;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

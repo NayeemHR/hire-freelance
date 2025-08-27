@@ -1,0 +1,47 @@
+@use "../base/variables" as *;
+@use "sass:color";
+@use "../base/grid" as *;
+.services {
+  background-color: color.scale($primary, $lightness: 90%);
+  padding-bottom: 240px;
+  .heading {
+    margin: 0 auto;
+    text-align: center;
+    width: 450px;
+    margin-bottom: 40px;
+    @include min-sm {
+      width: 90%;
+    }
+  }
+  .service-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    @include min-md{
+      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include min-sm {
+      gap: 0;
+      grid-template-columns: 1fr;
+    }
+    .box {
+      padding: 40px;
+      @include min-md {
+        padding: 20px;
+      }
+      @include min-sm {
+        padding: 10px 20%;
+        
+      }
+      text-align: center;
+      border: 1px solid #f4f4f5;
+      border-radius: 12px;
+      svg {
+        display: initial;
+        color: $primary;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

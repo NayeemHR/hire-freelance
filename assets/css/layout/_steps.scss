@@ -1,0 +1,53 @@
+@use "../base/variables" as *;
+@use "../base/grid" as *;
+.steps-section {
+  background-image: url("../img/bg-2.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+  @include min-sm {
+    background-size: auto;
+  }
+  .heading {
+    width: 100%;
+    @include min-xxl {
+      width: 70%;
+    }
+    text-align: center;
+    margin: 0 auto;
+  }
+  .step-boxes {
+    // display: flex;
+    // justify-content: space-between;
+    @include min-sm {
+      align-items: center;
+      flex-direction: column;
+    }
+    text-align: center;
+    .box {
+      text-align: center;
+      width: 372px;
+      height: 316px;
+      padding: 20px;
+      span {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: $primary;
+        box-shadow: 10px 32px 72px rgba(51, 51, 51, 0.05);
+        svg {
+          fill: $color-bg;
+        }
+        margin-bottom: 44px;
+      }
+      h4 {
+        margin-bottom: 14px;
+      }
+      p {
+        color: #79869f;
+      }
+    }
+  }
+}
+
+/* Ellipse 108 */

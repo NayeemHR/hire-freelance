@@ -1,0 +1,101 @@
+/* ---------- Modern CSS Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+:where(p, li, figcaption) {
+  text-wrap: pretty;
+}
+
+:target {
+  scroll-margin-block: 8ex;
+}
+
+// new styles
+
+$flex: flex, inline-flex;
+
+@each $var in $flex {
+  .d-#{$var} {
+    display: $var;
+  }
+}
+
+$justify: start, center, end, space-around, space-between, space-evenly;
+@each $var in $justify {
+  .justify-#{$var} {
+    justify-content: $var;
+  }
+}
+
+$align-items: start, center, end, baseline, stretch;
+@each $var in $align-items {
+  .align-#{$var} {
+    align-items: $var;
+  }
+}
+
+//flex-direction
+$flex-direction: row, column;
+@each $var in $flex-direction {
+  .flex-#{$var} {
+    flex-direction: $var;
+  }
+}
+
+@for $i from 0 through 12 {
+  .gap-#{$i * 10} {
+    gap: #{$i * 10}px;
+  }
+}
+
+@for $i from 0 through 12 {
+  .pt-#{$i * 10} {
+    padding-top: #{$i * 10}px;
+  }
+  .pb-#{$i * 10} {
+    padding-bottom: #{$i * 10}px;
+  }
+  .mt-#{$i * 10} {
+    margin-top: #{$i * 10}px;
+  }
+  .mb-#{$i * 10} {
+    margin-bottom: #{$i * 10}px;
+  }
+}

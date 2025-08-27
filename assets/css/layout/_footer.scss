@@ -1,0 +1,84 @@
+@use "../base/variables" as *;
+@use "sass:color";
+.site-footer {
+  background-color: color.scale($primary, $lightness: 90%);
+
+  .footer-site-info {
+    width: 70%;
+    .logo img {
+      margin-bottom: 20px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        margin-bottom: 16px;
+        color: $color-text-muted;
+        a {
+          display: flex;
+          align-items: center;
+          color: $color-text-muted;
+          svg {
+            width: 18px;
+            height: auto;
+            margin-right: 10px;
+            color: $color-text-muted;
+          }
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  h5 {
+    margin-bottom: 24px;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 16px;
+      a {
+        color: $color-text-muted;
+        position: relative;
+        transition: all 0.25s ease-out;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          transform-origin: bottom right;
+          height: 2px;
+          bottom: -2px;
+          left: 0;
+          background: $primary;
+          transition: transform 0.25s ease-out;
+        }
+        &:hover {
+          color: $primary;
+          &::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+        }
+      }
+    }
+  }
+}
+.footer-bottom {
+  border-top: 1px solid $color-border;
+  padding: 20px 0;
+  text-align: center;
+  p {
+    margin: 0;
+    color: color.scale($color-text-muted, $lightness: 40%);
+    font-size: 0.875rem;
+    a {
+      color: color.scale($primary, $lightness: 50%);
+    }
+  }
+}

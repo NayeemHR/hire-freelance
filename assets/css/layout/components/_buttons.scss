@@ -1,0 +1,19 @@
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+
+.btn-primary {
+  @include button-variant($primary, $color-bg);
+  backdrop-filter: blur(10px);
+}
+
+.btn-primary:hover {
+  @include button-variant($secondary-color, $color-bg);
+}
+
+.btn-secondary {
+  @include button-variant($secondary-color, $color-bg);
+  backdrop-filter: blur(10px);
+}
+.btn-secondary:hover {
+  @include button-variant($primary, $color-bg);
+}

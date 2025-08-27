@@ -1,0 +1,139 @@
+@use "../base/variables" as *;
+@use "../base/grid" as *;
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  @include min-xl {
+    padding-top: 0px;
+    padding-bottom: 120px;
+  }
+  .container {
+    .row {
+      height: 80vh;
+      @include min-md {
+        flex-direction: column;
+      }
+      &:nth-child(1) {
+        z-index: 1;
+      }
+      span {
+        z-index: 99;
+      }
+      h1 {
+        line-height: 4.375rem;
+        color: $color-text;
+        width: 750px;
+        @include min-sm {
+          width: 90%;
+        }
+      }
+      p {
+        color: $color-text-muted;
+        width: 420px;
+        margin-bottom: 32px;
+        @include min-sm {
+          width: 90%;
+        }
+      }
+      .btns {
+        display: flex;
+        gap: 30px;
+        a.video-play-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: $color-text;
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      img.ellipse-116 {
+        position: absolute;
+        top: 265px;
+
+        left: 48%;
+        @include min-md {
+          z-index: -1;
+          opacity: 0.5;
+        }
+        @include min-sm {
+          z-index: -1;
+          opacity: 0.5;
+        }
+      }
+      img.group-1703 {
+        position: absolute;
+        top: 543px;
+        left: 55%;
+        transform: translateX(-50%);
+      }
+      img.vector-103 {
+        position: absolute;
+        top: 102px;
+        left: 30%;
+      }
+      .hero-image {
+        position: absolute;
+        top: 406px;
+        left: 55%;
+        background: $primary;
+        width: 467px;
+        height: 331px;
+        border-radius: 40px;
+        @include min-sm {
+          margin-top: 20px;
+          position: initial;
+          // left: 0;
+        }
+        // position: relative;
+        img {
+          position: absolute;
+          bottom: 0;
+          width: 80%;
+          left: 50%;
+          transform: translateX(-50%);
+          @include min-sm {
+            position: initial;
+            left: 0;
+            transform: none;
+          }
+        }
+        img.ellipse-117 {
+          position: absolute;
+          bottom: -60px;
+          left: 0px;
+          width: 118px;
+        }
+      }
+    }
+  }
+  img.ellipse-22 {
+    position: absolute;
+    right: 100px;
+    top: 180px;
+    @include min-sm {
+      display: none;
+    }
+  }
+  img.ellipse-106 {
+    position: absolute;
+    top: 440px;
+    right: -64px;
+  }
+  img.ellipse-18 {
+    position: absolute;
+    top: 150px;
+    left: 72px;
+    @include min-xl {
+      left: 0;
+    }
+    @include min-md {
+      display: none;
+    }
+    @include min-sm {
+      display: none;
+    }
+  }
+}
